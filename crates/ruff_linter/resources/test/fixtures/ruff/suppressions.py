@@ -170,6 +170,20 @@ class Foo:
 # ruff: file-ignore[ARG002]  should cover the class method above!
 
 
+def f():
+    # RUF104 for the implicit range should be suppressed, and the ignore not flagged as unused
+    # ruff: disable[E741]  # ruff: ignore[RUF104]
+    I = 1
+    print(I)
+
+
+def f():
+    # ruff: ignore[RUF104]  own-line ignore above an unmatched disable
+    # ruff: disable[E741]
+    I = 1
+    print(I)
+
+
 # Ensure LAST suppression in file is reported.
 # https://github.com/astral-sh/ruff/issues/23235
 # ruff:disable[F401]

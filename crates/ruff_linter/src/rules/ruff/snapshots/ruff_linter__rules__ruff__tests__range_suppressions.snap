@@ -119,16 +119,6 @@ help: Remove unused suppression
 47 |
    |
 
-E741 Ambiguous variable name: `I`
-  --> suppressions.py:47:5
-   |
-45 |     # An unused suppression diagnostic should also be logged.
-46 |     # ruff: disable[E501]
-47 |     I = 1
-   |     ^
-48 |     # ruff: enable[E501]
-   |
-
 F841 [*] Local variable `I` is assigned to but never used
   --> suppressions.py:47:5
    |
@@ -146,6 +136,16 @@ help: Remove assignment to unused variable `I`
 48 |     # ruff: enable[E501]
    |
 note: This is an unsafe fix and may change runtime behavior
+
+E741 Ambiguous variable name: `I`
+  --> suppressions.py:47:5
+   |
+45 |     # An unused suppression diagnostic should also be logged.
+46 |     # ruff: disable[E501]
+47 |     I = 1
+   |     ^
+48 |     # ruff: enable[E501]
+   |
 
 RUF100 [*] Unused `noqa` directive (unused: `E741`, `F841`)
   --> suppressions.py:55:12
@@ -470,19 +470,19 @@ help: Remove unused suppression
     |
 
 RUF100 [*] Unused suppression (non-enabled: `F401`)
-   --> suppressions.py:175:1
+   --> suppressions.py:189:1
     |
-173 | # Ensure LAST suppression in file is reported.
-174 | # https://github.com/astral-sh/ruff/issues/23235
-175 | # ruff:disable[F401]
+187 | # Ensure LAST suppression in file is reported.
+188 | # https://github.com/astral-sh/ruff/issues/23235
+189 | # ruff:disable[F401]
     | ^^^^^^^^^^^^^^^^^^^^
-176 | print("goodbye")
-177 | # ruff:enable[F401]
+190 | print("goodbye")
+191 | # ruff:enable[F401]
     | -------------------
 help: Remove unused suppression
     |
-174 | # https://github.com/astral-sh/ruff/issues/23235
+188 | # https://github.com/astral-sh/ruff/issues/23235
     - # ruff:disable[F401]
-175 | print("goodbye")
+189 | print("goodbye")
     - # ruff:enable[F401]
     |
